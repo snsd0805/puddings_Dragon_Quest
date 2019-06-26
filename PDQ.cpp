@@ -57,7 +57,7 @@ int main()
 	cout<<version()<<endl<<endl;
 	int choice;
 	cout<<"請選擇遊戲難度(1:新手 || 2:普通 || 3:困難 || 4:夢魘)"<<endl;
-	cin>>choice;
+	cin>>choice;/*
 	if (choice == 0){
 		cout<<yellow_text("[DEBUG]選擇為自訂難度")<<endl;
 		cout<<white_text("勇者最大血量: ");
@@ -96,7 +96,7 @@ int main()
 		hero.atk = 400;
 		dragon.hp = 12000;
 		dragon.atk = 300;
-	}
+	}*/
 	cout<<"------------------------------------------------------------"<<endl;
 	hero.maxhp = hero.hp;
 	dragon.maxhp = dragon.hp;
@@ -122,7 +122,7 @@ int main()
 		if(hero.ap>=10&&pow==false)
 		{
 			pow=true;
-		}
+		}/*
 		cout<<"攻擊: | +  atk|| ++  double atk|| -  defend|"<<endl;
 		cout<<"技能: "<<endl;
         cout<<white_text("| 1  ")<<left<<setw(21)<<custom_text("freeze",45)<<white_text(" CD: ")<<left<<setw(2)<<18-freeze_cd<<white_text("/18 |");
@@ -139,14 +139,14 @@ int main()
 		cout<<yellow_text("| !  ")<<left<<setw(21)<<yellow_text("pow")<<white_text(" AP: ")<<left<<setw(2)<<hero.ap<<white_text("(10)|");
 		}else{
 		cout<<yellow_text("| !  ")<<left<<setw(30)<<blink_text(yellow_text("pow"))<<white_text(" AP: ")<<left<<setw(2)<<hero.ap<<white_text("(10)|");
-		}
-		cout<<endl<<endl;
+		}*/
+		/*cout<<endl<<endl;
 		cout<<white_text("勇者血量:")<<red_text(to_string(hero.hp))<<white_text("/"+to_string(hero.maxhp))
 			<<white_text("  惡龍血量:")<<red_text(to_string(dragon.hp))<<white_text("/"+to_string(dragon.maxhp));
 		if(explosion>0) cout <<"("<< custom_text("+"+to_string(dragon_shield),128)<<"/"<<custom_text(to_string(explosion),92)<<")";
-		cout<<endl<<endl;
+		cout<<endl<<endl;*/
 		// 各項技能CD判斷
-		if(freeze==false)
+		/*if(freeze==false)
 		{
 			if(freeze_cd<18)
 				freeze_cd++;
@@ -201,7 +201,7 @@ int main()
 				treat_cd++;
 			else if(treat_cd==14)
 				treat=true;
-		}
+		}*/
 		// 隨機傷害倍率
 		random_num=gen_rand()%14;
 		damage_rate=1;
@@ -212,7 +212,8 @@ int main()
         if(random_num==8||random_num==9) {damage_rate=1.1;}
         if(random_num==10) {damage_rate=1.8;}
 		damage=hero.atk*damage_rate; //計算勇者造成傷害
-		if(weaken>0) {damage*=0.7;} //判斷勇者攻擊是否有被弱化
+
+			if(weaken>0) {damage*=0.7;} //判斷勇者攻擊是否有被弱化
 		while(true) //使用者輸入指令與判斷
 		{
 		    cout << white_text(">>> ");
@@ -220,7 +221,7 @@ int main()
 			cout<<endl;
 			if(action=="+")
 			{
-				this_thread::sleep_for(chrono::milliseconds(600));
+				//this_thread::sleep_for(chrono::milliseconds(600));
 				if(explosion>0 && dragon_shield!=0) dragon_shield_check(&dragon_shield,&damage);
 				cout<<white_text("勇者對惡龍造成了 "+to_string(damage)+" 點傷害");
 				if(damage_rate==1.8)
