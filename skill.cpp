@@ -1,6 +1,5 @@
 #include "skill.h"
 
-
 int Skill::get_nowCd(){return this->nowCd;}
 int Skill::get_cd(){return this->cd;}
 string Skill::get_name(){return this->name;}
@@ -13,7 +12,9 @@ void Skill::cdCount(){
 		}
 	}
 }
-
+void Skill::use(){		//for hero use , may be a abastract func.
+	this-> status = 0 ;
+}
 
 Attack::Attack(){this->reset();}
 DoubleAttack::DoubleAttack(){this->reset();}

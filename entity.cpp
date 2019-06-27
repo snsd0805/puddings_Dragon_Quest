@@ -1,31 +1,24 @@
 #include <iostream>
-#include <random>
-#include <chrono>
-#include <thread>
-#include <iomanip>
-
-/* load custom headers */
-#include "render.h"
-#include "battle_check.h"
-#include "misc.h"
- 
 using namespace std;
-
-#include "skill_list.cpp"
 #include "entity.h"
 
 void Entity::hurt(int rate){
 	this->hp-=rate;
-	cout<<"Now: "<<this->hp;
+	cout<<"Hero just lost "<<rate<<" point HP"<<endl;
+	cout<<"Now: "<<this->hp<<endl;
 }
-
+void Entity::recover(int rate){
+	this->hp+=rate;
+	cout<<"Hero just get "<<rate<<" point HP"<<endl;
+	cout<<"Now: "<<this->hp<<endl;
+}
 
 Hero::Hero(int choice){
 	if (choice == 0){
-		cout<<yellow_text("[DEBUG]選擇為自訂難度")<<endl;
-		cout<<white_text("勇者最大血量: ");
+		cout<<"[DEBUG]選擇為自訂難度"<<endl;
+		cout<<"勇者最大血量: ";
 		cin>>this->hp;
-		cout<<endl<<white_text("勇者基礎攻擊力: ");
+		cout<<endl<<"勇者基礎攻擊力: ";
 		cin>>this->atk;
 	}
 	else if(choice == 1){
@@ -45,14 +38,26 @@ Hero::Hero(int choice){
 		this->atk = 400;
 	}
 	this->maxhp=this->hp;
+	cout<<"A hero was spawn"<<endl;
+	cout<<this->hp<<endl;
+	cout<<this->atk<<endl;
 }
-
-
+void Hero::skill(int choice){
+	cout<< this	-> skilllist . skill[choice] 
+				-> get_name() << endl ;
+	this	-> skilllist . skill[choice] -> use() ;
+}
+void Hero::showskill(){
+	this -> skilllist . show();
+}
+void Hero::rest(){
+	this -> skilllist . cdCount();
+}
 Dragon::Dragon(int choice){
 	if (choice == 0){
-		cout<<white_text("惡龍最大血量: ");
+		cout<<"惡龍最大血量: ";
 		cin>>this->hp;
-		cout<<endl<<white_text("惡龍基礎攻擊力: ");
+		cout<<endl<<"惡龍基礎攻擊力: ";
 		cin>>this->atk;
 	}
 	else if(choice == 1){
@@ -72,5 +77,8 @@ Dragon::Dragon(int choice){
 		this->atk = 300;
 	}
 	this->maxhp=this->hp;
+	cout<<"A dragon was spawn"<<endl;
+	cout<<this->hp<<endl;
+	cout<<this->atk<<endl;
 }
 

@@ -10,6 +10,7 @@ class Entity //interface
 	public:
 		int get_DemageRate();
 		void hurt(int rate);
+		void recover(int rate);
 };
 
 
@@ -18,9 +19,11 @@ class Hero : public Entity	//product
 {
 	public:
 		Hero(int choice);
-
+		void skill(int choice);
+		void showskill();
+		void rest();
 	private:
-		HeroSkillList heroskill;
+		HeroSkillList skilllist;
 };
 
 

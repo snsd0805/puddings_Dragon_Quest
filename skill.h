@@ -1,9 +1,12 @@
+#include <iostream>
+using namespace std;
 
 class Skill	//interface 
 {
 	public:
-		void reset();
-		void cdCount();
+		void reset();// abstrace func, every son use themeself
+		void cdCount();// must be used function
+		void use();	// may be a abstract function
 
 		string get_name();
 		int get_cd();

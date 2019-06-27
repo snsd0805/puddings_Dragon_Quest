@@ -1,6 +1,4 @@
-#include "skill.cpp"
 #include "skill_list.h"
-
 HeroSkillList::HeroSkillList(){
 	this->skill[0]=new Attack;
 	this->skill[1]=new DoubleAttack;
