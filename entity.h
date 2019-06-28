@@ -19,7 +19,7 @@ class Hero : public Entity	//product
 {
 	public:
 		Hero(int choice);
-		void skill(int choice);
+		bool skill(int choice);
 		void showskill();
 		void rest();
 	private:

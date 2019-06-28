@@ -42,10 +42,15 @@ Hero::Hero(int choice){
 	cout<<this->hp<<endl;
 	cout<<this->atk<<endl;
 }
-void Hero::skill(int choice){
-	cout<< this	-> skilllist . skill[choice] 
-				-> get_name() << endl ;
-	this	-> skilllist . skill[choice] -> use() ;
+bool Hero::skill(int choice){
+	//cout<< this	-> skilllist . skill[choice] 
+	//			-> get_name() << endl ;
+	if(this	-> skilllist . skill[choice] -> get_status() == 0){
+		return 0;
+	}else{
+		this	-> skilllist . skill[choice] -> use() ;
+		return 1;
+	}
 }
 void Hero::showskill(){
 	this -> skilllist . show();

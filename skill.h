@@ -11,11 +11,12 @@ class Skill	//interface
 		string get_name();
 		int get_cd();
 		int get_nowCd();
+		int get_status();
 	protected:
 		string name;
 		int cd;
-		int nowCd = 0;
-		int status = 1; //1 can,0 can't
+		int nowCd;
+		int status; //1 can,0 can't
 };
 
 class Attack : public Skill   //product
