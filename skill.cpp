@@ -10,14 +10,14 @@ void Skill::cdCount(){
 		if(this->nowCd < this->cd){
 			this->nowCd++;
 		}else{
-			//this->reset();
-			this->nowCd = 0;
-			this->status = 1;
+			this->reset();
 		}
 	}
 }
-void Skill::use(){		//for hero use , may be a abastract func.
-	this-> status = 0 ;
+void Skill::use(){		//This is a virtual func.
+						// it will be used by son.
+	this-> status = 0 ;		// test line
+	cout<<"test faild";		//test line
 }
 
 Attack::Attack(){this->reset();}
@@ -108,4 +108,53 @@ void Pow::reset(){
 	this->status = 1;
 }
 
+//=======================================================================
 
+void Attack::use(){
+	this-> status = 0 ;
+	cout<<"Attack is used";
+}
+void DoubleAttack::use(){
+	this-> status = 0 ;
+	cout<<"DoubleAttack is used";
+}
+void Defense::use(){
+	this-> status = 0 ;
+	cout<<"Defense is used";
+}
+void Freeze::use(){
+	this-> status = 0 ;
+	cout<<"Freeze is used";
+}
+void Fire::use(){
+	this-> status = 0 ;
+	cout<<"Fire is used";
+}
+void Swipe::use(){
+	this-> status = 0 ;
+	cout<<"Swipe is used";
+}
+void Dizzy::use(){
+	this-> status = 0 ;
+	cout<<"Dizzy is used";
+}
+void Blood::use(){
+	this-> status = 0 ;
+	cout<<"Blood is used";
+}
+void Shield::use(){
+	this-> status = 0 ;
+	cout<<"Shield is used";
+}
+void Cure::use(){
+	this-> status = 0 ;
+	cout<<"Cure is used";
+}
+void Treat::use(){
+	this-> status = 0 ;
+	cout<<"Treat is used";
+}
+void Pow::use(){
+	this-> status = 0 ;
+	cout<<"Pow is used";
+}

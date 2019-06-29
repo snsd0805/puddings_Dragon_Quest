@@ -6,9 +6,9 @@ class Entity //interface
 		int atk;
 		int ap;
 
-		int DemageRate;
+		int DemageRate;		//Has not been used
 	public:
-		int get_DemageRate();
+		int get_DemageRate();	//Has not been implemented
 		void hurt(int rate);
 		void recover(int rate);
 };
