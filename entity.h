@@ -1,3 +1,9 @@
+#include "skill.h"
+
+//#ifndef ENTITY_H
+//#define ENTITY_H
+
+
 class Entity //interface
 {
 	protected:
@@ -6,9 +12,10 @@ class Entity //interface
 		int atk;
 		int ap;
 
-		int DemageRate;		//Has not been used
+		Entity *enemy;
+
 	public:
-		int get_DemageRate();	//Has not been implemented
+		void set_enemy(Entity *enemy);
 		void hurt(int rate);
 		void recover(int rate);
 };
@@ -23,7 +30,7 @@ class Hero : public Entity	//product
 		void showskill();
 		void rest();
 	private:
-		HeroSkillList skilllist;
+		Skill *skilllist[12];
 };
 
 
@@ -35,3 +42,5 @@ class Dragon : public Entity	//product
 		Dragon(int choice);
 	private:
 };
+
+//#endif

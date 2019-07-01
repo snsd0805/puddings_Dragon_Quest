@@ -1,10 +1,13 @@
-#include "skill.h"
+#include <iostream>
+using namespace std;
+
+#include "entity.h"
 
 int Skill::get_nowCd(){return this->nowCd;}
 int Skill::get_cd(){return this->cd;}
 string Skill::get_name(){return this->name;}
 int Skill::get_status(){return this->status;}
-void Skill::reset(){cout<<"GG"<<endl;} // this line is unused,it couldn't run as i think
+void Skill::reset(){cout<<"Test Fail"<<endl;} // this line is unused,it couldn't run as i think
 void Skill::cdCount(){
 	if(this->status==0){
 		if(this->nowCd < this->cd){
@@ -14,7 +17,7 @@ void Skill::cdCount(){
 		}
 	}
 }
-void Skill::use(){		//This is a virtual func.
+void Skill::use(Entity *enemy){		//This is a virtual func.
 						// it will be used by son.
 	this-> status = 0 ;		// test line
 	cout<<"test faild";		//test line
@@ -110,51 +113,53 @@ void Pow::reset(){
 
 //=======================================================================
 
-void Attack::use(){
+void Attack::use(Entity *enemy){
 	this-> status = 0 ;
-	cout<<"Attack is used";
+	cout<<"Attack is used"<<endl;
+	cout<<this->get_name()<<endl;
+
 }
-void DoubleAttack::use(){
+void DoubleAttack::use(Entity *enemy){
 	this-> status = 0 ;
 	cout<<"DoubleAttack is used";
 }
-void Defense::use(){
+void Defense::use(Entity *enemy){
 	this-> status = 0 ;
 	cout<<"Defense is used";
 }
-void Freeze::use(){
+void Freeze::use(Entity *enemy){
 	this-> status = 0 ;
 	cout<<"Freeze is used";
 }
-void Fire::use(){
+void Fire::use(Entity *enemy){
 	this-> status = 0 ;
 	cout<<"Fire is used";
 }
-void Swipe::use(){
+void Swipe::use(Entity *enemy){
 	this-> status = 0 ;
 	cout<<"Swipe is used";
 }
-void Dizzy::use(){
+void Dizzy::use(Entity *enemy){
 	this-> status = 0 ;
 	cout<<"Dizzy is used";
 }
-void Blood::use(){
+void Blood::use(Entity *enemy){
 	this-> status = 0 ;
 	cout<<"Blood is used";
 }
-void Shield::use(){
+void Shield::use(Entity *enemy){
 	this-> status = 0 ;
 	cout<<"Shield is used";
 }
-void Cure::use(){
+void Cure::use(Entity *enemy){
 	this-> status = 0 ;
 	cout<<"Cure is used";
 }
-void Treat::use(){
+void Treat::use(Entity *enemy){
 	this-> status = 0 ;
 	cout<<"Treat is used";
 }
-void Pow::use(){
+void Pow::use(Entity *enemy){
 	this-> status = 0 ;
 	cout<<"Pow is used";
 }
