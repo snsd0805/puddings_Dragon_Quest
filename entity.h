@@ -13,11 +13,13 @@ class Entity //interface
 		int ap;
 
 		Entity *enemy;
+		Entity *self;
 
 	public:
-		void set_enemy(Entity *enemy);
-		void hurt(int rate);
-		void recover(int rate);
+		int get_atk();
+		void set_enemy(Entity *enemy,Entity *self);
+		virtual void hurt(int rate)=0;
+		virtual void recover(int rate)=0;
 };
 
 
@@ -29,6 +31,8 @@ class Hero : public Entity	//product
 		bool skill(int choice);
 		void showskill();
 		void rest();
+		virtual void recover(int rate);
+		virtual void hurt(int rate);
 	private:
 		Skill *skilllist[12];
 };
@@ -40,6 +44,8 @@ class Dragon : public Entity	//product
 {
 	public:
 		Dragon(int choice);
+		virtual void recover(int rate);
+		virtual void hurt(int rate);
 	private:
 };
 

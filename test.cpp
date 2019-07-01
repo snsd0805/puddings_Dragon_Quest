@@ -12,7 +12,7 @@ int main(){
 	Hero man(2);
 	Dragon dragon(2);
 
-	man.set_enemy(&dragon);
+	man.set_enemy(&dragon,&man);
 	man.skill(0);
 	man.rest();
 	man.showskill();

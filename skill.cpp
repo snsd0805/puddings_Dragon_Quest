@@ -17,7 +17,7 @@ void Skill::cdCount(){
 		}
 	}
 }
-void Skill::use(Entity *enemy){		//This is a virtual func.
+void Skill::use(Entity *enemy,Entity *self){		//This is a virtual func.
 						// it will be used by son.
 	this-> status = 0 ;		// test line
 	cout<<"test faild";		//test line
@@ -113,53 +113,53 @@ void Pow::reset(){
 
 //=======================================================================
 
-void Attack::use(Entity *enemy){
+void Attack::use(Entity *enemy,Entity *self){
 	this-> status = 0 ;
 	cout<<"Attack is used"<<endl;
-	cout<<this->get_name()<<endl;
-
+	int damage = self->get_atk();
+	enemy->hurt(damage);
 }
-void DoubleAttack::use(Entity *enemy){
+void DoubleAttack::use(Entity *enemy,Entity *self){
 	this-> status = 0 ;
 	cout<<"DoubleAttack is used";
 }
-void Defense::use(Entity *enemy){
+void Defense::use(Entity *enemy,Entity *self){
 	this-> status = 0 ;
 	cout<<"Defense is used";
 }
-void Freeze::use(Entity *enemy){
+void Freeze::use(Entity *enemy,Entity *self){
 	this-> status = 0 ;
 	cout<<"Freeze is used";
 }
-void Fire::use(Entity *enemy){
+void Fire::use(Entity *enemy,Entity *self){
 	this-> status = 0 ;
 	cout<<"Fire is used";
 }
-void Swipe::use(Entity *enemy){
+void Swipe::use(Entity *enemy,Entity *self){
 	this-> status = 0 ;
 	cout<<"Swipe is used";
 }
-void Dizzy::use(Entity *enemy){
+void Dizzy::use(Entity *enemy,Entity *self){
 	this-> status = 0 ;
 	cout<<"Dizzy is used";
 }
-void Blood::use(Entity *enemy){
+void Blood::use(Entity *enemy,Entity *self){
 	this-> status = 0 ;
 	cout<<"Blood is used";
 }
-void Shield::use(Entity *enemy){
+void Shield::use(Entity *enemy,Entity *self){
 	this-> status = 0 ;
 	cout<<"Shield is used";
 }
-void Cure::use(Entity *enemy){
+void Cure::use(Entity *enemy,Entity *self){
 	this-> status = 0 ;
 	cout<<"Cure is used";
 }
-void Treat::use(Entity *enemy){
+void Treat::use(Entity *enemy,Entity *self){
 	this-> status = 0 ;
 	cout<<"Treat is used";
 }
-void Pow::use(Entity *enemy){
+void Pow::use(Entity *enemy,Entity *self){
 	this-> status = 0 ;
 	cout<<"Pow is used";
 }

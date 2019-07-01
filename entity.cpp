@@ -1,21 +1,50 @@
 #include <iostream>
+#include <random>
 using namespace std;
 #include "entity.h"
+int Entity::get_atk(){
+		/* 隨機亂數初始化 */
+	random_device rand_dev;
+	default_random_engine gen_rand(rand_dev());
+	int random_num=gen_rand()%14;
 
-void Entity::hurt(int rate){
+	int damage_rate=1;
+	if(random_num==0||random_num==1) {damage_rate=0.9;}
+	if(random_num==2||random_num==3||random_num==4) {damage_rate=0.95;}
+	if(random_num==5||random_num==6||random_num==7) {damage_rate=1.05;}
+	if(random_num==8||random_num==9) {damage_rate=1.1;}
+	if(random_num==10) {damage_rate=1.8;}
+	int damage=this->atk*damage_rate;
+	return damage;
+}
+
+void Hero::hurt(int rate){
 	this->hp-=rate;
 	cout<<"Hero just lost "<<rate<<" point HP"<<endl;
 	cout<<"Now: "<<this->hp<<endl;
 }
-void Entity::recover(int rate){
+void Hero::recover(int rate){
 	this->hp+=rate;
 	cout<<"Hero just get "<<rate<<" point HP"<<endl;
 	cout<<"Now: "<<this->hp<<endl;
 }
-void Entity::set_enemy(Entity *enemy){
+void Dragon::hurt(int rate){
+	this->hp-=rate;
+	cout<<"Dragon just lost "<<rate<<" point HP"<<endl;
+	cout<<"Now: "<<this->hp<<endl;
+}
+void Dragon::recover(int rate){
+	this->hp+=rate;
+	cout<<"Dragon just get "<<rate<<" point HP"<<endl;
+	cout<<"Now: "<<this->hp<<endl;
+}
+void Entity::set_enemy(Entity *enemy,Entity *self){
 	this->enemy = enemy ;
+	this->self = self ;
 }
 Hero::Hero(int choice){
+
+
 	if (choice == 0){
 		cout<<"[DEBUG]選擇為自訂難度"<<endl;
 		cout<<"勇者最大血量: ";
@@ -64,7 +93,7 @@ bool Hero::skill(int choice){
 	if(this	-> skilllist[choice] -> get_status() == 0){
 		return 0;
 	}else{
-		this	-> skilllist[choice] -> use(this->enemy) ; 
+		this	-> skilllist[choice] -> use(this->enemy,this->self) ; 
 		return 1;
 	}
 }
@@ -83,6 +112,7 @@ void Hero::rest(){
 	}
 }
 Dragon::Dragon(int choice){
+
 	if (choice == 0){
 		cout<<"惡龍最大血量: ";
 		cin>>this->hp;
