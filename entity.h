@@ -1,4 +1,5 @@
 #include "skill.h"
+#include "status.h"
 
 //#ifndef ENTITY_H
 //#define ENTITY_H

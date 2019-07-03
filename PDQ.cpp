@@ -223,24 +223,24 @@ int main()
 			{
 				//this_thread::sleep_for(chrono::milliseconds(600));
 				if(explosion>0 && dragon_shield!=0) dragon_shield_check(&dragon_shield,&damage);
-				cout<<white_text("勇者對惡龍造成了 "+to_string(damage)+" 點傷害");
+				/*cout<<white_text("勇者對惡龍造成了 "+to_string(damage)+" 點傷害");
 				if(damage_rate==1.8)
 		    		cout<<"\a(暴擊!)"<<endl;
 		    	cout<<endl;
-	   			dragon.hp=dragon.hp-damage;
+	   			dragon.hp=dragon.hp-damage;*/
 	   			if(reflect>0){ hero.hp -= reflect_damage(&reflect,damage);} //判斷惡龍是否使用反彈
-				dragon_death_check(dragon.hp);
-	   			break;
+				/*dragon_death_check(dragon.hp);
+	   			break;*/
 			}
 			else if(action=="++")
 			{
 				this_thread::sleep_for(chrono::milliseconds(300));
 				damage/=2;
 				if(explosion>0 && dragon_shield!=0) dragon_shield_check(&dragon_shield,&damage);
-				cout<<white_text("勇者對惡龍造成了 " + to_string(damage) + " 點傷害");
+				//cout<<white_text("勇者對惡龍造成了 " + to_string(damage) + " 點傷害");
 				if(damage_rate==1.8)
 		    		cout<<"\a(暴擊!)";
-		    	cout<<endl;
+		    	/*cout<<endl;
 	   			dragon.hp=dragon.hp-(damage/2);
 	   			if(reflect>0){ hero.hp -= reflect_damage(&reflect,damage);}
 	   			 //計算第二次勇者攻擊傷害值
@@ -252,17 +252,17 @@ int main()
 				if(random_num==5||random_num==6||random_num==7) {damage_rate=1.05;}
 				if(random_num==8||random_num==9) {damage_rate=1.1;}
 				if(random_num==10) {damage_rate=1.8;}
-				damage=hero.atk*damage_rate;
+				damage=hero.atk*damage_rate;*/
 				if(weaken>0) {damage*=0.7;}
-				damage/=2;
+				//damage/=2;
 				if(explosion>0 && dragon_shield!=0) dragon_shield_check(&dragon_shield,&damage);
-				cout<<white_text("勇者對惡龍造成了 " + to_string(damage) + " 點傷害");
+				//cout<<white_text("勇者對惡龍造成了 " + to_string(damage) + " 點傷害");
 				if(damage_rate==1.8)
 		    		cout<<"\a(暴擊!)";
-		    	cout<<endl<<endl;
-	   			dragon.hp=dragon.hp-(damage/2);
+		    	//cout<<endl<<endl;
+	   			//dragon.hp=dragon.hp-(damage/2);
                 if(reflect>0){ hero.hp -= reflect_damage(&reflect,damage);}
-				dragon_death_check(dragon.hp);
+				//dragon_death_check(dragon.hp);
 	   			break;
 			}
 			else if(action=="-")

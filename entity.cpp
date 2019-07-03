@@ -6,14 +6,20 @@ int Entity::get_atk(){
 		/* 隨機亂數初始化 */
 	random_device rand_dev;
 	default_random_engine gen_rand(rand_dev());
+
 	int random_num=gen_rand()%14;
 
-	int damage_rate=1;
-	if(random_num==0||random_num==1) {damage_rate=0.9;}
-	if(random_num==2||random_num==3||random_num==4) {damage_rate=0.95;}
-	if(random_num==5||random_num==6||random_num==7) {damage_rate=1.05;}
-	if(random_num==8||random_num==9) {damage_rate=1.1;}
-	if(random_num==10) {damage_rate=1.8;}
+	double damage_rate=1;
+	if(random_num==0||random_num==1) {cout<<"0.9";damage_rate=0.9;}
+	else if(random_num==2||random_num==3||random_num==4) {cout<<"0.95";damage_rate=0.95;}
+	else if(random_num==5||random_num==6||random_num==7) {cout<<"1.05";damage_rate=1.05;}
+	else if(random_num==8||random_num==9) {cout<<"1.1";damage_rate=1.1;}
+	else if(random_num==10) {cout<<"1.8";damage_rate=1.8;}
+	else {damage_rate = 1;cout<<"1";}
+	cout<<endl;
+	cout<<"rand:"<<random_num<<endl;
+	cout<<"rate:"<<damage_rate<<endl;
+	cout<<"atk:"<<this->atk<<endl;
 	int damage=this->atk*damage_rate;
 	return damage;
 }

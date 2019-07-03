@@ -122,6 +122,10 @@ void Attack::use(Entity *enemy,Entity *self){
 void DoubleAttack::use(Entity *enemy,Entity *self){
 	this-> status = 0 ;
 	cout<<"DoubleAttack is used";
+	int damage = self->get_atk();
+	enemy->hurt(damage/2);
+		damage = self->get_atk();
+	enemy->hurt(damage/2);
 }
 void Defense::use(Entity *enemy,Entity *self){
 	this-> status = 0 ;
